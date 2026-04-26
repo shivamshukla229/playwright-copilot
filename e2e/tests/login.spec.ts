@@ -4,7 +4,7 @@ import { waitForElement } from '../utils/waitUtils';
 
 test.describe('Login Feature', () => {
   test.describe('Positive Login Tests', () => {
-    test('should login successfully with standard user', async ({ page }) => {
+    test('should login successfully with standard user @SMOKE', async ({ page }) => {
       const loginPage = new LoginPage(page);
       await loginPage.goto();
       await loginPage.login('standard_user', 'secret_sauce');
@@ -30,7 +30,7 @@ test.describe('Login Feature', () => {
   });
 
   test.describe('Negative Login Tests - Invalid Credentials', () => {
-    test('should show error with invalid username', async ({ page }) => {
+    test('should show error with invalid username @SMOKE', async ({ page }) => {
       const loginPage = new LoginPage(page);
       await loginPage.goto();
       await loginPage.login('invalid_user', 'secret_sauce');
@@ -85,7 +85,7 @@ test.describe('Login Feature', () => {
   });
 
   test.describe('Login UI Tests', () => {
-    test('should have login button enabled by default', async ({ page }) => {
+    test('should have login button enabled by default @SMOKE', async ({ page }) => {
       const loginPage = new LoginPage(page);
       await loginPage.goto();
       await loginPage.assertLoginButtonEnabled();
