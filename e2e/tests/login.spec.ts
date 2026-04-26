@@ -118,7 +118,14 @@ test.describe('Login Feature', () => {
       await loginPage.assertErrorMessage('Epic sadface: Username and password do not match any user in this service');
     });
 
-    test('should handle special characters in password', async ({ page }) => {
+    test('should handle special characters in password - invalid', async ({ page }) => {
+      const loginPage = new LoginPage(page);
+      await loginPage.goto();
+      await loginPage.login('standard_user', 'pass@#$%');
+      await loginPage.assertErrorMessage('Epic sadface: Username and password do not match any user in this service');
+    });
+
+    test('should handle special characters in password - another invalid case', async ({ page }) => {
       const loginPage = new LoginPage(page);
       await loginPage.goto();
       await loginPage.login('standard_user', 'pass@#$%');
